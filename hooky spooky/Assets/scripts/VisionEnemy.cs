@@ -21,6 +21,8 @@ public class VisionEnemy : MonoBehaviour
     {
         if (!other.CompareTag("Player")) 
         {
+            
+            Debug.Log("found");
             return;
         }
 
