@@ -24,6 +24,7 @@ public class enemyMovement : MonoBehaviour
     public void PlayerFoundResponse()
     {
         transform.LookAt(player);
+        Debug.Log("looking");
     }
     
     public enum StateEnum {  looking , walking , runing , atacking}

@@ -26,11 +26,11 @@ public class MovementPlayer : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W)) 
         {
-            gameObject.transform.localPosition-= transform.rotation * (new Vector3(move, 0, 0) * Time.deltaTime);
+            gameObject.transform.localPosition+= transform.rotation * (new Vector3(0, 0, move) * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            gameObject.transform.localPosition += transform.rotation * (new Vector3(move, 0, 0) * Time.deltaTime);
+            gameObject.transform.localPosition -= transform.rotation * (new Vector3(0, 0, move) * Time.deltaTime);
         }
     }
 

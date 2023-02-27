@@ -1,36 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
 
 
-public class PlayerMovement : MonoBehaviour
-{
-    CharacterController characterController;
+//public class PlayerMovement : MonoBehaviour
+//{
+//    CharacterController characterController;
 
-    public float speed = 6.0f;
+//    public float speed = 6.0f;
  
 
 
-    private Vector3 moveDirection = Vector3.zero;
+//    private Vector3 moveDirection = Vector3.zero;
 
-    void Start()
-    {
-        characterController = GetComponent<CharacterController>();
-    }
+//    void Start()
+//    {
+//        characterController = GetComponent<CharacterController>();
+//    }
 
-    void Update()
-    {
+//    void Update()
+//    {
      
          
 
-            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
-            moveDirection *= speed;
+//            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+//            moveDirection *= speed;
 
          
         
 
        
 
-        characterController.Move(moveDirection * Time.deltaTime);
-    }
-}
+//        characterController.Move(moveDirection * Time.deltaTime);
+//    }
+//}

@@ -9,6 +9,11 @@ public class VisionEnemy : MonoBehaviour
 
     public UnityEvent PlayerSpotted;
     private bool Found = false;
+
+    public void Update()
+    {
+        FoundPlayer();
+    }
     public void FoundPlayer()
     {
         if (Found == true)
@@ -19,14 +24,14 @@ public class VisionEnemy : MonoBehaviour
 
     public void OnTriggerEnter(Collider other) 
     {
-        if (!other.CompareTag("Player")) 
+        if (other.CompareTag("Player")) 
         {
-            
+            Found = true;
             Debug.Log("found");
             return;
         }
 
-        Found = true;
+        
     }
     public void LookingBehaviore()
     {
