@@ -9,46 +9,44 @@ public class enemyMovement : MonoBehaviour
     public Transform player;
     public Transform enemy;
     public VisionEnemy vision;
-    public NavMeshAgent navMeshAgent;
+    public bool Follow = false;
+   public float enemyMove = 1f;
 
     private void Start()
     {
-       // NavMeshAgent = GetComponent<NavMeshAgent>();
+      
     }
 
     void Update()
     {
-        UpdateState();
+       
+
+        FollowResponse();
     }
 
     public void PlayerFoundResponse()
     {
-        transform.LookAt(player);
-        Debug.Log("looking");
+        Debug.Log("responding to found");
+        Follow = true;
     }
-    
-    public enum StateEnum {  looking , walking , runing , atacking}
-    private StateEnum state;
-    private void UpdateState()
-    {
-        switch(state)
-        {
-            case StateEnum.looking: vision.LookingBehaviore(); break;
-        }
 
-    }
-    private void PatrolBehaviour()
+    public void FollowResponse()
     {
-        if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+        if (Follow == true)
         {
-            //patrolIndex += 1;
-           // if (patrolIndex >= patrolPoints.Length)
-           // {
-            //    patrolIndex = 0;
-            //}
-            //navMeshAgent.SetDestination(patrolPoints[patrolIndex].transform.position);
+            Debug.Log("folowing");
+            Vector3 playerFloorPoint = new(player.position.x, 0, player.position.z);
+            transform.LookAt(playerFloorPoint);
+            gameObject.transform.localPosition += transform.rotation * (new Vector3(0, 0, enemyMove) * Time.deltaTime);
+
+            ;
         }
+        else {
+            vision.LookingBehaviore();
+                }
     }
+
+
 
 
     }

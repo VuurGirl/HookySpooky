@@ -35,7 +35,7 @@ public class VisionEnemy : MonoBehaviour
     }
     public void LookingBehaviore()
     {
-        transform.parent.localRotation = Quaternion.Euler(0, 90 * Mathf.Sin(Time.time), 0);
+        transform.parent.localRotation = (Quaternion.Euler(0, (90 * Mathf.Sin(Time.time)) + 90, 0));
         //enemy.transform.Rotate(0,90*Mathf.Sin(Time.time)*Time.deltaTime,0);
     }
 }
