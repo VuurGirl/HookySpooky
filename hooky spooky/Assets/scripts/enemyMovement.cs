@@ -26,7 +26,7 @@ public class enemyMovement : MonoBehaviour
 
     public void PlayerFoundResponse()
     {
-        Debug.Log("responding to found");
+        
         Follow = true;
     }
 
@@ -34,7 +34,7 @@ public class enemyMovement : MonoBehaviour
     {
         if (Follow == true)
         {
-            Debug.Log("folowing");
+            
             Vector3 playerFloorPoint = new(player.position.x, 0, player.position.z);
             transform.LookAt(playerFloorPoint);
             gameObject.transform.localPosition += transform.rotation * (new Vector3(0, 0, enemyMove) * Time.deltaTime);
