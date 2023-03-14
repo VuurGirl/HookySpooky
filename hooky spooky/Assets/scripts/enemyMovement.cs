@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.AI;
 
-public class enemyMovement : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
     public Transform player;
     public Transform enemy;
     public VisionEnemy vision;
-    public bool Follow = false;
+    public bool follow = false;
    public float enemyMove = 1f;
 
     private void Start()
@@ -27,26 +27,23 @@ public class enemyMovement : MonoBehaviour
     public void PlayerFoundResponse()
     {
         
-        Follow = true;
+        follow = true;
     }
 
     public void FollowResponse()
     {
-        if (Follow == true)
+        if (follow == true)
         {
             
             Vector3 playerFloorPoint = new(player.position.x, 0, player.position.z);
             transform.LookAt(playerFloorPoint);
             gameObject.transform.localPosition += transform.rotation * (new Vector3(0, 0, enemyMove) * Time.deltaTime);
 
-            ;
+            
         }
-        else {
+        else 
+        {
             vision.LookingBehaviore();
-                }
+        }
     }
-
-
-
-
-    }
+}

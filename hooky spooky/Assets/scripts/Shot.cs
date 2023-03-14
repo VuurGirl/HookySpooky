@@ -14,13 +14,13 @@ public class Shot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Fireing();
     }
 
     public void Fireing()
-    { if (Input.GetMouseButtonDown(0))
+    { if (Input.GetMouseButtonDown(0) && transform.childCount>0)
         {
-            transform.GetChild(0).localPosition += new Vector3(0,1,0);
+            transform.GetChild(0).localPosition += new Vector3(0,1,0)*Time.deltaTime;
             Bullet.SetActive(true);
         }
     }
