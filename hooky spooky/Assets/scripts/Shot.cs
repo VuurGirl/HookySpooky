@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shot : MonoBehaviour
 {
+    public GameObject UsedShots;
     public GameObject Bullet;
     // Start is called before the first frame update
     void Start()
@@ -15,13 +16,15 @@ public class Shot : MonoBehaviour
     void Update()
     {
         Fireing();
+
     }
 
     public void Fireing()
-    { if (Input.GetMouseButtonDown(0) && transform.childCount>0)
+    { if (Input.GetMouseButtonDown(0) && transform.childCount>1)
         {
-            transform.GetChild(0).localPosition += new Vector3(0,1,0)*Time.deltaTime;
-            Bullet.SetActive(true);
+            Instantiate(Bullet,transform.position, transform.rotation);
+            transform.GetChild(1).SetParent(UsedShots.transform);
+            // transform.SetParent(usedObjects.transform);
         }
     }
         
