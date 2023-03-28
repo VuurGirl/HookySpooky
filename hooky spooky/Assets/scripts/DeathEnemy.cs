@@ -5,10 +5,11 @@ using UnityEngine;
 public class DeathEnemy : MonoBehaviour
 {
 
- 
+  
     public GameObject deathEnemy;
     public BoxCollider Bollet;
     public GameObject enemy;
+    public float killedCount =0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,13 +22,19 @@ public class DeathEnemy : MonoBehaviour
         
  
     }
+    public void Death()
+    {
+        Debug.Log("jammer joh");
+        Destroy(gameObject);
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "bullet")
+        if (other.CompareTag("bullet")) 
         {
             Debug.Log("geraakt");
             Instantiate(deathEnemy,transform.localPosition, transform.rotation);
-            Destroy(enemy);
+            ScoreManager.Instance.killCount++;
+            Destroy(gameObject);
         }
     }
 }

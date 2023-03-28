@@ -6,6 +6,7 @@ public class Shot : MonoBehaviour
 {
     public GameObject UsedShots;
     public GameObject Bullet;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,7 @@ public class Shot : MonoBehaviour
             Instantiate(Bullet,transform.position, transform.rotation);
             //transform.GetChild(1).SetParent(UsedShots.transform);
             Destroy(transform.GetChild(1).gameObject);
+
             // transform.SetParent(usedObjects.transform);
         }
     }
