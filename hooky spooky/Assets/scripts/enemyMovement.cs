@@ -11,10 +11,12 @@ public class EnemyMovement : MonoBehaviour
     public VisionEnemy vision;
     public bool follow = false;
    public float enemyMove = 1f;
+    public GameObject walkingEnemy;
+    public GameObject defoldEnemy;
 
     private void Start()
     {
-      
+        walkingEnemy.SetActive(false);
     }
 
     void Update()
@@ -38,8 +40,9 @@ public class EnemyMovement : MonoBehaviour
             Vector3 playerFloorPoint = new(player.position.x, 0, player.position.z);
             transform.LookAt(playerFloorPoint);
             gameObject.transform.localPosition += transform.rotation * (new Vector3(0, 0, enemyMove) * Time.deltaTime);
+            walkingEnemy.SetActive(true);
+            defoldEnemy.SetActive(false);
 
-            
         }
         else 
         {

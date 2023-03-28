@@ -23,7 +23,8 @@ public class Shot : MonoBehaviour
     { if (Input.GetMouseButtonDown(0) && transform.childCount>1)
         {
             Instantiate(Bullet,transform.position, transform.rotation);
-            transform.GetChild(1).SetParent(UsedShots.transform);
+            //transform.GetChild(1).SetParent(UsedShots.transform);
+            Destroy(transform.GetChild(1).gameObject);
             // transform.SetParent(usedObjects.transform);
         }
     }

@@ -22,10 +22,11 @@ public class ShooterPlayer : MonoBehaviour
 
     public void GunRotation()
     {
-        float mouseX = horizontalSpeed * Input.GetAxis("Mouse X") ;
+        float mouseX = Input.mousePosition.x / (float)Screen.width * 360  ;
+        mouseX -= 180;
         mouseX = Mathf.Clamp(mouseX, -90, 90);
 
-        transform.Rotate(0, mouseX, 0);
+        transform.rotation = transform.parent.rotation * Quaternion.Euler(0, mouseX, 0);
 
     }
 
